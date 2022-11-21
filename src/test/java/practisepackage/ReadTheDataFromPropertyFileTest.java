@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -35,7 +36,7 @@ public class ReadTheDataFromPropertyFileTest {
 		driver.manage().window().maximize();
 		
 		driver.get(Url);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
 		driver.findElement(By.xpath("//a[text()='Staff Login']")).click();
 		driver.findElement(By.name("staff_id")).sendKeys(Us);

@@ -15,6 +15,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import com.onlinebankingsystem.Banking.genericlibrary.Webdriver_Utilities;
+
 public class FundTransfer_SendMoney {
 
 	public static void main(String[] args) throws Throwable {
@@ -52,7 +54,8 @@ public class FundTransfer_SendMoney {
 				}
 				driver.manage().window().maximize();
 				driver.get(URL);
-				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+				Webdriver_Utilities wlib=new Webdriver_Utilities();
+				wlib.waitForPageLoad(driver);
 				JavascriptExecutor js = (JavascriptExecutor) driver;
 				js.executeScript("window.scrollBy(0,700)");
 				driver.findElement(By.xpath("//li[text()='Fund Transfer']")).click();

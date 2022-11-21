@@ -22,7 +22,7 @@ public class CreateCustomerTest {
 		//throw new ArithmeticException();
 	}
 	
-	@Test(dependsOnMethods = "updateCustomer")
+	@Test(dependsOnMethods = "updateCustomer", invocationCount = 2, priority=1, enabled=true)
 	public void deleteCustomer()
 	{
 		System.err.println("customer is deleted sucessfully");

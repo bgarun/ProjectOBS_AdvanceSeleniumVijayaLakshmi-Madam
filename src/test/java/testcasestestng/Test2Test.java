@@ -3,15 +3,9 @@ package testcasestestng;
 import java.io.IOException;
 
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 import com.onlinebankingsystem.Banking.genericlibrary.BaseClass;
-import com.onlinebankingsystem.Banking.genericlibrary.Excel_Utilities;
-import com.onlinebankingsystem.Banking.genericlibrary.File_Utilities;
-import com.onlinebankingsystem.Banking.genericlibrary.Webdriver_Utilities;
 
 import in.onlinebankingsystem.banking.objectrepository.AddBeneficiaryPage;
 import in.onlinebankingsystem.banking.objectrepository.FundTransferLoginPage;
@@ -20,7 +14,9 @@ import in.onlinebankingsystem.banking.objectrepository.HomePage;
 import in.onlinebankingsystem.banking.objectrepository.InternetBankingHomePage;
 import in.onlinebankingsystem.banking.objectrepository.OtpConfirmationPage;
 
-public class Test2 extends BaseClass{
+
+//@Listeners(com.onlinebankingsystem.Banking.genericlibrary.ListenersImplementation.class)
+public class Test2Test extends BaseClass{
 	
 	@Test(groups = "smoke")
 	public void addBeneficiaryTransferFund() throws IOException, InterruptedException{
@@ -49,6 +45,8 @@ public class Test2 extends BaseClass{
 		        ibhp.fundtransfer();
 		        FundTransferPage ftp=new FundTransferPage(driver);
 		        ftp.addbeneficiary();
+		       
+		        
 			
 				AddBeneficiaryPage abp=new AddBeneficiaryPage(driver);
 				abp.beneficiaryname(BNAME, BACCNO, IFSC);
@@ -65,12 +63,15 @@ public class Test2 extends BaseClass{
 				Thread.sleep(15000);//OTP ENTERING
 				OtpConfirmationPage ocp=new OtpConfirmationPage(driver);
 				ocp.verifybutton();
+				 
+				
+			  
 				
 				Alert POPUP = driver.switchTo().alert();
 				String POPEX = POPUP.getText();
 				elib.writedatafromExcel("sheet3", 42, 5, POPEX);
 	            POPUP.accept();
-	            
+	           
 	            ibhp.logout();
 	}
 }

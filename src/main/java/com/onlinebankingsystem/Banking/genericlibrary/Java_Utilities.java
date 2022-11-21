@@ -34,10 +34,10 @@ public class Java_Utilities {
 	 */
 	public String getSystemDateInFormat()
 	{
-		SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy HH:mm:SS");
+		SimpleDateFormat dateFormat=new SimpleDateFormat("dd-MM-yyyy HH:mm:SS");
 		Date systemDate=new Date();
 		String getDateAndTime = dateFormat.format(systemDate);
 		System.out.println(getDateAndTime);
-		return  getDateAndTime;
+		return  getDateAndTime.replaceAll(":", "-");
 	}
 }

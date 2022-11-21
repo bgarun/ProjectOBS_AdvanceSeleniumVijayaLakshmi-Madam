@@ -10,6 +10,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.onlinebankingsystem.Banking.genericlibrary.BaseClass;
@@ -43,6 +44,7 @@ public class Test6  extends BaseClass{
 	wlib.scrollBarAction(driver);
 	HomePage hp=new HomePage(driver);
 	hp.openaccount();
+	Assert.fail();
 	wlib.scrollBarAction(driver);
 	OpenAccountFormpage oafp=new OpenAccountFormpage(driver);
      oafp.openaccountpagemap(elib.getList("sheet8"), driver);
@@ -73,6 +75,26 @@ public class Test6  extends BaseClass{
 	String APNO = APPNO.getText();
     elib.writedatafromExcel("sheet3", 30, 5, APNO);
 	APPNO.accept();
+	
+	}
+	
+	
+	
+	@Test(dependsOnMethods = "openAccount")
+	public void approveAccount() throws IOException {
+
+		String UNS = flib.getDataFromPropertyFile("unstaff");
+		String PWDS = flib.getDataFromPropertyFile("pwdstaff");
+		
+		String GENDER = elib.readdatafromExcel("sheet7", 0, 1);
+		String STATE = elib.readdatafromExcel("sheet7", 1, 1);
+		String CITY = elib.readdatafromExcel("sheet7", 2, 1);
+		String ACCTYPE = elib.readdatafromExcel("sheet7", 3, 1);
+		String APPNO1 = elib.readdatafromExcel("sheet9", 0, 1);
+
+		wlib.waitForPageLoad(driver);
+		wlib.scrollBarAction(driver);
+		HomePage hp=new HomePage(driver);
 	hp.staffLogin();
 	StaffLoginPage slp=new StaffLoginPage(driver);
 	slp.stafflogin(UNS, PWDS);

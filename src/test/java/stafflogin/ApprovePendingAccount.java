@@ -3,6 +3,7 @@ package stafflogin;
 import java.io.FileInputStream;
 import java.time.Duration;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
@@ -10,6 +11,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.onlinebankingsystem.Banking.genericlibrary.Webdriver_Utilities;
 
 public class ApprovePendingAccount {
 
@@ -31,7 +34,8 @@ public class ApprovePendingAccount {
 				WebDriver driver=new ChromeDriver();
 				driver.manage().window().maximize();
 				driver.get(URL);
-				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+				Webdriver_Utilities wlib=new Webdriver_Utilities();
+				wlib.waitForPageLoad(driver);
 				driver.findElement(By.xpath("//a[text()='Staff Login']")).click();
 				
 				driver.findElement(By.name("staff_id")).sendKeys(US);

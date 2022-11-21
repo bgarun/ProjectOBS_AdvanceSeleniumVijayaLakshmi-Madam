@@ -3,9 +3,7 @@ package testcasestestng;
 import java.io.IOException;
 
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.onlinebankingsystem.Banking.genericlibrary.BaseClass;
@@ -19,11 +17,13 @@ import in.onlinebankingsystem.banking.objectrepository.FundTransferPage;
 import in.onlinebankingsystem.banking.objectrepository.HomePage;
 import in.onlinebankingsystem.banking.objectrepository.InternetBankingHomePage;
 import in.onlinebankingsystem.banking.objectrepository.OtpConfirmationPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Test3 extends BaseClass{
+
+
+
+public class Test3Test extends BaseClass{
 	
-	@Test(groups = "smoke")
+	@Test//(groups = "smokeTest")
 	public void addBeneficiaryFundtransferStatement() throws IOException, InterruptedException {
 		
 
@@ -71,6 +71,7 @@ public class Test3 extends BaseClass{
 	ftlp.customerid(UNC, PWDC);
 	InternetBankingHomePage ibhp=new InternetBankingHomePage(driver);
 	ibhp.fundtransfer();
+	//Assert.fail();
 	
 	FundTransferPage ftp=new FundTransferPage(driver);
 	ftp.addbeneficiary();
@@ -83,6 +84,7 @@ public class Test3 extends BaseClass{
 	String TE = ADD.getText();
 	elib.writedatafromExcel("sheet3", 38, 1, TE);
 	ADD.accept();
+	
 	
 	abp.fundtransfer();
     wlib.scrollBarAction(driver);

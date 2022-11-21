@@ -63,6 +63,7 @@ public void confirm()
 	//sa.assertAll();
 }
 */
+	
 @Test
 
 public void open()
@@ -78,7 +79,7 @@ public void open()
 	System.out.println("------LineJjjjj--------");
 	//sa.assertAll();
 }
-
+/*
 @Test
 
 public void close()
@@ -94,5 +95,5 @@ public void close()
 	System.out.println("------LineJ555555--------");
 	//sa.assertAll();
 }
-
+*/
 }

@@ -17,7 +17,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WindowType;
+
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -34,7 +34,7 @@ public class Webdriver_Utilities {
 	 */
 	public void waitForPageLoad(WebDriver driver)
 	{
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 	}
 	/**
 	 * This method is used to wait for page load explicitly
@@ -43,7 +43,7 @@ public class Webdriver_Utilities {
 	 */
 	public void waitForElementToBeVisisble(WebDriver driver,WebElement element)
 	{
-		WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+		WebDriverWait wait =new WebDriverWait(driver,20);
 		wait.until(ExpectedConditions.visibilityOf(element));
 		
 	}
@@ -55,13 +55,13 @@ public class Webdriver_Utilities {
 	 */
 	public void waitForElemnetToBeClickAble(WebDriver driver, WebElement element)
 	    { 
-		      WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+		      WebDriverWait wait = new WebDriverWait(driver,20);
 		      wait.until(ExpectedConditions.elementToBeClickable(element));
 		}
 	
 	public void waitForElemnetTogettitle(WebDriver driver, WebElement element,String title)
     { 
-	      WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+	      WebDriverWait wait = new WebDriverWait(driver,20);
 	      wait.until(ExpectedConditions.titleContains(title));//elementToBeClickable(element));
 	}
 

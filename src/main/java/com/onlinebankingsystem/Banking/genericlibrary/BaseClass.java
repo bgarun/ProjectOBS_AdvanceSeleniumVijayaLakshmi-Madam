@@ -29,7 +29,7 @@ public class BaseClass {
 		System.out.println("database connected sucessfully");
 	}
 	
-	//@Parameters("BROWSER")
+	
 	@BeforeClass(groups ={"smoke","regression"})
 	public void launchBrowser(/*String BROWSER*/) throws Throwable
 	{
@@ -44,7 +44,7 @@ public class BaseClass {
 	    else if(BROWSER.equalsIgnoreCase("firefox"))
 	    {
 	    	//WebDriverManager.firefoxdriver().setup();
-	    	driver=new FirefoxDriver();
+	    	
 	    }
 	    else
 	    {
